@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UICSA Branch Quiz Challenge - Test Your Knowledge, Challenge Your Mind. Organized by UICSA Technical Team, Guru Nanak University, Hyderabad.">
+    <meta name="keywords" content="UICSA, Quiz, Guru Nanak University, Technical Event, Branch Quiz, Student Competition">
+    <meta name="author" content="UICSA Technical Team">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="UICSA Branch Quiz Challenge">
+    <meta property="og:description" content="Test Your Knowledge. Challenge Your Mind. Showcase Your Skills.">
+    <meta property="og:type" content="website">
+    
+    <title>UICSA Branch Quiz Challenge | Guru Nanak University</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Configuration -->
+    <script src="config.js"></script>
+</head>
+<body>
+    
+    <!-- ============================================ -->
+    <!-- HEADER / NAVIGATION -->
+    <!-- ============================================ -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Left Side: University Branding -->
+                <div class="header-left">
+                    <!-- Place University Logo at: assets/images/university-logo.png -->
+                    <div class="logo-container">
+                        <img src="assets/images/university-logo.png" 
+                             alt="Guru Nanak University Logo" 
+                             class="header-logo university-logo"
+                             onerror="this.style.display='none'">
+                        <div class="header-text">
+                            <h1 class="university-name">Guru Nanak University</h1>
+                            <p class="university-location">Hyderabad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: UICSA & Technical Team -->
+                <div class="header-right">
+                    <!-- Place UICSA Logo at: assets/images/uicsa-logo.png -->
+                    <img src="assets/images/uicsa-logo.png" 
+                         alt="UICSA Logo" 
+                         class="header-logo uicsa-logo"
+                         onerror="this.style.display='none'">
+                    
+                    <!-- Place Technical Team Logo at: assets/images/technical-team-logo.png -->
+                    <img src="assets/images/technical-team-logo.png" 
+                         alt="Technical Team Logo" 
+                         class="header-logo tech-team-logo"
+                         onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="particle-container" id="particles"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-aos="fade-down">
+                    <span>🎓 Official UICSA Event</span>
+                </div>
+                
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    <span class="title-line">UICSA BRANCH</span>
+                    <span class="title-line title-highlight">QUIZ CHALLENGE</span>
+                </h1>
+                
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Guru Nanak University, Hyderabad
+                </p>
+                
+                <div class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
+                    <span class="tagline-item">Think</span>
+                    <span class="tagline-separator">•</span>
+                    <span class="tagline-item">Solve</span>
+                    <span class="tagline-separator">•</span>
+                    <span class="tagline-item">Compete</span>
+                    <span class="tagline-separator">•</span>
+                    <span class="tagline-item">Excel</span>
+                </div>
+                
+                <div class="hero-organized" data-aos="fade-up" data-aos-delay="400">
+                    <p>Organized by <strong>UICSA Technical Team</strong></p>
+                </div>
+                
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="500">
+                    <button class="btn btn-primary btn-lg" id="registerBtn" aria-label="Register for the quiz">
+                        <span class="btn-icon">📝</span>
+                        <span class="btn-text">REGISTER FOR QUIZ</span>
+                    </button>
+                    <button class="btn btn-secondary btn-lg" id="startQuizBtn" aria-label="Start the quiz">
+                        <span class="btn-icon">🚀</span>
+                        <span class="btn-text">START QUIZ</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
+            <span class="scroll-text">Scroll Down</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- COUNTDOWN TIMER -->
+    <!-- ============================================ -->
+    <section class="countdown-section" id="countdown">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">QUIZ STARTS IN</h2>
+            
+            <div class="countdown-timer" id="countdownTimer" data-aos="fade-up" data-aos-delay="100">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <div class="countdown-message" id="countdownMessage" style="display: none;">
+                <p class="quiz-started">🚀 THE QUIZ HAS STARTED!</p>
+                <button class="btn btn-secondary btn-lg pulse" id="startQuizBtn2">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">START QUIZ NOW</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT THE QUIZ -->
+    <!-- ============================================ -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">ABOUT THE QUIZ</h2>
+            <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Test Your Knowledge. Challenge Your Limits.
+            </div>
+            
+            <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+                <p class="about-text">
+                    The <strong>UICSA Branch Quiz Challenge</strong> is a flagship event designed to foster academic excellence 
+                    and competitive spirit among students of the University Institute of Computer Science and Applications.
+                </p>
+                <p class="about-text">
+                    This branch-level quiz provides a platform for students to showcase their knowledge, sharpen their 
+                    problem-solving abilities, and engage in healthy academic competition. The event encourages participants to:
+                </p>
+                
+                <div class="about-goals">
+                    <div class="goal-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="goal-icon">💡</div>
+                        <h3>Technical Knowledge</h3>
+                        <p>Deepen your understanding of core concepts and emerging technologies</p>
+                    </div>
+                    <div class="goal-card" data-aos="fade-up" data-aos-delay="350">
+                        <div class="goal-icon">🧠</div>
+                        <h3>Logical Thinking</h3>
+                        <p>Enhance analytical and critical thinking capabilities</p>
+                    </div>
+                    <div class="goal-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="goal-icon">⚡</div>
+                        <h3>Problem Solving</h3>
+                        <p>Develop quick decision-making and solution-finding skills</p>
+                    </div>
+                    <div class="goal-card" data-aos="fade-up" data-aos-delay="450">
+                        <div class="goal-icon">🏆</div>
+                        <h3>Competitive Spirit</h3>
+                        <p>Cultivate a healthy competitive mindset and sportsmanship</p>
+                    </div>
+                    <div class="goal-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="goal-icon">👥</div>
+                        <h3>Team Participation</h3>
+                        <p>Collaborate and learn together with fellow students</p>
+                    </div>
+                    <div class="goal-card" data-aos="fade-up" data-aos-delay="550">
+                        <div class="goal-icon">📚</div>
+                        <h3>Learning Beyond Classroom</h3>
+                        <p>Explore knowledge beyond traditional curriculum boundaries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- EVENT DETAILS -->
+    <!-- ============================================ -->
+    <section class="event-details-section" id="details">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">EVENT DETAILS</h2>
+            
+            <div class="details-grid">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="detail-icon">📅</div>
+                    <h3 class="detail-title">Date</h3>
+                    <p class="detail-value" id="eventDateDisplay">Loading...</p>
+                </div>
+                
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="detail-icon">⏰</div>
+                    <h3 class="detail-title">Time</h3>
+                    <p class="detail-value" id="eventTimeDisplay">Loading...</p>
+                </div>
+                
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="detail-icon">⏱️</div>
+                    <h3 class="detail-title">Duration</h3>
+                    <p class="detail-value" id="eventDurationDisplay">Loading...</p>
+                </div>
+                
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="detail-icon">📍</div>
+                    <h3 class="detail-title">Venue</h3>
+                    <p class="detail-value" id="venueDisplay">Loading...</p>
+                </div>
+                
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="detail-icon">💻</div>
+                    <h3 class="detail-title">Mode</h3>
+                    <p class="detail-value" id="modeDisplay">Loading...</p>
+                </div>
+                
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="detail-icon">👥</div>
+                    <h3 class="detail-title">Eligibility</h3>
+                    <p class="detail-value" id="eligibilityDisplay">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- QUIZ HIGHLIGHTS -->
+    <!-- ============================================ -->
+    <section class="highlights-section" id="highlights">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">QUIZ HIGHLIGHTS</h2>
+            <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                What Makes This Quiz Special
+            </div>
+            
+            <div class="highlights-grid">
+                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="highlight-icon">🧠</div>
+                    <h3>Test Your Knowledge</h3>
+                    <p>Comprehensive questions covering diverse topics and concepts</p>
+                </div>
+                
+                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="highlight-icon">💻</div>
+                    <h3>Technical Skills</h3>
+                    <p>Challenge your understanding of computer science fundamentals</p>
+                </div>
+                
+                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="highlight-icon">⚡</div>
+                    <h3>Quick Thinking</h3>
+                    <p>Time-bound challenges to test your speed and accuracy</p>
+                </div>
+                
+                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="highlight-icon">🎯</div>
+                    <h3>Accuracy Matters</h3>
+                    <p>Precision and correctness are key to success</p>
+                </div>
+                
+                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="highlight-icon">🏆</div>
+                    <h3>Healthy Competition</h3>
+                    <p>Compete with peers in a fair and encouraging environment</p>
+                </div>
+                
+                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="highlight-icon">🚀</div>
+                    <h3>Learning Experience</h3>
+                    <p>Gain insights and knowledge throughout the challenge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- RULES & GUIDELINES -->
+    <!-- ============================================ -->
+    <section class="rules-section" id="rules">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">RULES & GUIDELINES</h2>
+            <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Please Read Carefully Before Participating
+            </div>
+            
+            <div class="rules-grid">
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="rule-number">01</div>
+                    <p>Only registered UICSA branch students are eligible to participate in the quiz challenge.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rule-number">02</div>
+                    <p>Participants must report before the scheduled start time as mentioned in the event details.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="rule-number">03</div>
+                    <p>Carry your valid college ID card and bring it to the venue if required.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rule-number">04</div>
+                    <p>Follow all instructions and guidelines provided by the quiz coordinators and technical team.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="rule-number">05</div>
+                    <p>Do not use unauthorized electronic devices or seek external assistance during the quiz.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="rule-number">06</div>
+                    <p>Communication with other participants during the quiz is strictly prohibited.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="rule-number">07</div>
+                    <p>Tab switching or attempting unauthorized access may be restricted by the test portal system.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="rule-number">08</div>
+                    <p>Carefully follow all instructions displayed on the official external test portal during the quiz.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="550">
+                    <div class="rule-number">09</div>
+                    <p>The quiz must be completed within the allotted time period specified for the event.</p>
+                </div>
+                
+                <div class="rule-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="rule-number">10</div>
+                    <p>The decision of the quiz coordinators and UICSA Technical Team will be final and binding.</p>
+                </div>
+            </div>
+            
+            <div class="rules-note" data-aos="fade-up" data-aos-delay="650">
+                <p><strong>Note:</strong> These rules are subject to modifications. Any updates will be communicated before the event.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- EVENT FLOW / TIMELINE -->
+    <!-- ============================================ -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">HOW IT WORKS</h2>
+            <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Your Journey Through The Quiz Challenge
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="150">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>REGISTER</h3>
+                        <p>Complete your registration through the official Google Form link provided on this website.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-arrow" data-aos="fade-up" data-aos-delay="200">↓</div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="250">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>READ RULES</h3>
+                        <p>Carefully review all quiz rules, guidelines, and instructions to ensure fair participation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-arrow" data-aos="fade-up" data-aos-delay="300">↓</div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="350">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>JOIN THE QUIZ</h3>
+                        <p>Click "Start Quiz" button at the scheduled time to access the external test portal.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-arrow" data-aos="fade-up" data-aos-delay="400">↓</div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="450">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>COMPETE</h3>
+                        <p>Answer questions with accuracy and speed. Manage your time effectively throughout the quiz.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-arrow" data-aos="fade-up" data-aos-delay="500">↓</div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="550">
+                    <div class="timeline-number">05</div>
+                    <div class="timeline-content">
+                        <h3>COMPLETE</h3>
+                        <p>Submit your answers before the timer ends and ensure all responses are saved.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-arrow" data-aos="fade-up" data-aos-delay="600">↓</div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="650">
+                    <div class="timeline-number">06</div>
+                    <div class="timeline-content">
+                        <h3>RESULTS & RECOGNITION</h3>
+                        <p>Results will be announced after evaluation. Recognition will be provided to top performers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT UICSA -->
+    <!-- ============================================ -->
+    <section class="about-uicsa-section" id="about-uicsa">
+        <div class="container">
+            <div class="about-uicsa-content" data-aos="fade-up">
+                <div class="about-uicsa-logo">
+                    <!-- Place UICSA Logo at: assets/images/uicsa-logo.png -->
+                    <img src="assets/images/uicsa-logo.png" 
+                         alt="UICSA Logo" 
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="about-uicsa-text">
+                    <h2 class="section-title">ABOUT UICSA</h2>
+                    <p>
+                        The <strong>University Institute of Computer Science and Applications (UICSA)</strong> is a premier 
+                        academic branch at Guru Nanak University, dedicated to fostering excellence in computer science education 
+                        and technology innovation.
+                    </p>
+                    <p>
+                        UICSA provides a vibrant learning environment where students develop strong technical foundations, 
+                        practical skills, and industry-ready expertise. Our branch actively encourages student participation 
+                        in technical events, competitions, and collaborative learning initiatives.
+                    </p>
+                    <p>
+                        The UICSA Technical Team organizes various academic and co-curricular events throughout the year, 
+                        creating opportunities for students to showcase their talents, enhance their knowledge, and build 
+                        strong peer networks within the computer science community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT UNIVERSITY -->
+    <!-- ============================================ -->
+    <section class="about-university-section" id="about-university">
+        <div class="container">
+            <div class="about-university-content" data-aos="fade-up">
+                <div class="about-university-text">
+                    <h2 class="section-title">ABOUT GURU NANAK UNIVERSITY</h2>
+                    <p>
+                        <strong>Guru Nanak University</strong> is a distinguished institution located in Hyderabad, 
+                        committed to providing quality education across diverse academic disciplines. The university 
+                        emphasizes holistic development, combining rigorous academics with practical learning experiences.
+                    </p>
+                    <p>
+                        With state-of-the-art infrastructure, experienced faculty, and a student-centric approach, 
+                        Guru Nanak University creates an environment conducive to academic excellence, research, 
+                        innovation, and character building.
+                    </p>
+                    <p>
+                        The university encourages students to participate actively in technical competitions, cultural 
+                        events, and community service, fostering well-rounded individuals prepared to excel in their 
+                        chosen fields and contribute meaningfully to society.
+                    </p>
+                </div>
+                <div class="about-university-logo">
+                    <!-- Place University Logo at: assets/images/university-logo.png -->
+                    <img src="assets/images/university-logo.png" 
+                         alt="Guru Nanak University Logo" 
+                         onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- GALLERY -->
+    <!-- ============================================ -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">EVENT GALLERY</h2>
+            <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Glimpses of Campus & Previous Events
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Add your event/campus photos here -->
+                <!-- Place photos in assets/gallery/ folder -->
+                <!-- Example photos - replace with your actual images -->
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="assets/gallery/photo1.jpg" 
+                         alt="Campus view" 
+                         loading="lazy"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/gallery/photo2.jpg" 
+                         alt="UICSA event" 
+                         loading="lazy"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
+                    <img src="assets/gallery/photo3.jpg" 
+                         alt="Technical event" 
+                         loading="lazy"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/gallery/photo4.jpg" 
+                         alt="Student participation" 
+                         loading="lazy"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350">
+                    <img src="assets/gallery/photo5.jpg" 
+                         alt="Quiz competition" 
+                         loading="lazy"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/gallery/photo6.jpg" 
+                         alt="Campus activity" 
+                         loading="lazy"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-icon">🔍</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="gallery-note" data-aos="fade-up" data-aos-delay="450">
+                Add more photos by placing them in the <code>assets/gallery/</code> folder
+            </p>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+        <img src="" alt="Gallery image" id="lightboxImage">
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TECHNICAL TEAM -->
+    <!-- ============================================ -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-header" data-aos="fade-up">
+                <!-- Place Technical Team Logo at: assets/images/technical-team-logo.png -->
+                <img src="assets/images/technical-team-logo.png" 
+                     alt="Technical Team Logo" 
+                     class="team-logo"
+                     onerror="this.style.display='none'">
+                <h2 class="section-title">UICSA TECHNICAL TEAM</h2>
+                <p class="section-subtitle">Meet The Organizers</p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 - Edit names and roles -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="team-photo">
+                        <img src="assets/images/team-member-1.jpg" 
+                             alt="Team member" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%233b82f6%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2260%22 font-family=%22Arial%22%3E👤%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h3 class="team-name">Member Name 1</h3>
+                    <p class="team-role">Event Coordinator</p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-photo">
+                        <img src="assets/images/team-member-2.jpg" 
+                             alt="Team member" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%233b82f6%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2260%22 font-family=%22Arial%22%3E👤%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h3 class="team-name">Member Name 2</h3>
+                    <p class="team-role">Technical Lead</p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="team-photo">
+                        <img src="assets/images/team-member-3.jpg" 
+                             alt="Team member" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%233b82f6%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2260%22 font-family=%22Arial%22%3E👤%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h3 class="team-name">Member Name 3</h3>
+                    <p class="team-role">Quiz Master</p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-photo">
+                        <img src="assets/images/team-member-4.jpg" 
+                             alt="Team member" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%233b82f6%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2260%22 font-family=%22Arial%22%3E👤%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h3 class="team-name">Member Name 4</h3>
+                    <p class="team-role">Logistics Head</p>
+                </div>
+            </div>
+            
+            <p class="team-note" data-aos="fade-up" data-aos-delay="350">
+                Edit team member names and roles directly in <code>index.html</code> (Team Section)
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ANNOUNCEMENTS -->
+    <!-- ============================================ -->
+    <section class="announcement-section" id="announcements">
+        <div class="container">
+            <div class="announcement-box" data-aos="fade-up">
+                <div class="announcement-icon">📢</div>
+                <div class="announcement-content">
+                    <h3>IMPORTANT ANNOUNCEMENT</h3>
+                    <p>
+                        Please complete your registration before the deadline and carefully read all quiz instructions 
+                        before starting. Make sure you have a stable internet connection if participating online. 
+                        For any queries, contact the UICSA Technical Team.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ SECTION -->
+    <!-- ============================================ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Got Questions? We've Got Answers
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                    <button class="faq-question">
+                        Who can participate in the quiz?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The quiz is open to all registered students of the UICSA Branch at Guru Nanak University, Hyderabad. Make sure you complete the registration process through the official form link provided on this website.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question">
+                        How do I register for the quiz?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Click the "REGISTER FOR QUIZ" button on this website. You will be redirected to an official Google Form where you need to fill in your details. Complete the form before the registration deadline.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <button class="faq-question">
+                        Where will the quiz be conducted?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The venue and mode (online/offline) are mentioned in the Event Details section above. Please check the details carefully and arrive on time if it's an offline event. For online mode, ensure you have a stable internet connection.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-question">
+                        Where do I start the quiz?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>At the scheduled quiz time, click the "START QUIZ" button on this website. You will be redirected to the official external test portal where the quiz will be conducted. Make sure to log in with your registered credentials.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                    <button class="faq-question">
+                        What should I bring to the quiz?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>For offline quizzes, bring your valid college ID card, stationery if required, and any other items mentioned in the instructions. For online quizzes, ensure your device is charged and you have a backup internet connection if possible.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <button class="faq-question">
+                        What are the important quiz rules?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Please read the "Rules & Guidelines" section carefully. Key rules include: no communication with other participants, no unauthorized devices, complete the quiz within time limits, follow coordinator instructions, and maintain academic integrity throughout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- REGISTER SECTION -->
+    <!-- ============================================ -->
+    <section class="cta-register-section" id="register">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2 class="cta-title">READY TO PARTICIPATE?</h2>
+                <p class="cta-subtitle">
+                    Register now and be part of the UICSA Branch Quiz Challenge. 
+                    Showcase your knowledge and compete with your peers!
+                </p>
+                <button class="btn btn-primary btn-xl pulse" id="registerBtn2">
+                    <span class="btn-icon">📝</span>
+                    <span class="btn-text">REGISTER FOR QUIZ</span>
+                </button>
+                <p class="cta-note">Registration is quick and easy. Click the button above to get started.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- START QUIZ SECTION -->
+    <!-- ============================================ -->
+    <section class="cta-quiz-section" id="start">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2 class="cta-title">QUIZ TIME</h2>
+                <p class="cta-subtitle">
+                    Your challenge begins here. Click below to access the official test platform 
+                    and start your quiz journey.
+                </p>
+                <button class="btn btn-secondary btn-xl pulse" id="startQuizBtn3">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">START QUIZ</span>
+                </button>
+                <p class="cta-note">
+                    <strong>Note:</strong> The quiz will be conducted through the official external test platform.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>UICSA BRANCH</h3>
+                    <p>University Institute of Computer Science and Applications</p>
+                    <p>Guru Nanak University, Hyderabad</p>
+                </div>
+                
+                <div class="footer-organized">
+                    <p><strong>Organized by</strong></p>
+                    <p>UICSA Technical Team</p>
+                </div>
+                
+                <div class="footer-quick-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Quiz</a></li>
+                        <li><a href="#details">Event Details</a></li>
+                        <li><a href="#rules">Rules</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 UICSA Branch Quiz Challenge. All rights reserved.</p>
+                <p class="footer-disclaimer">
+                    This website is for event representation only. The actual quiz is conducted on an external platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    
+</body>
+</html>
