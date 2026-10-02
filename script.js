@@ -59,12 +59,89 @@ function initializeButtons() {
         document.getElementById('startQuizBtn3')
     ];
     
-    // Add click handlers to register buttons
+    // Get modal elements
+    const modal = document.getElementById('registrationModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const register1stYear = document.getElementById('register1stYear');
+    const register2nd3rdYear = document.getElementById('register2nd3rdYear');
+    
+    // Add click handlers to register buttons - open modal instead
     registerButtons.forEach(button => {
         if (button) {
-            button.addEventListener('click', handleRegisterClick);
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                openRegistrationModal();
+            });
         }
     });
+    
+    // Modal control functions
+    function openRegistrationModal() {
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+    }
+    
+    function closeRegistrationModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    }
+    
+    // Close modal handlers
+    if (modalClose) {
+        modalClose.addEventListener('click', closeRegistrationModal);
+    }
+    
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeRegistrationModal);
+    }
+    
+    // Escape key to close modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeRegistrationModal();
+        }
+    });
+    
+    // Handle 1st year registration
+    if (register1stYear) {
+        register1stYear.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.registration1stYearUrl) {
+                if (QUIZ_CONFIG.registration1stYearUrl === 'PASTE_1ST_YEAR_GOOGLE_FORM_LINK_HERE') {
+                    alert('⚠️ 1st Year registration link not configured yet.\n\nPlease update registration1stYearUrl in config.js');
+                } else {
+                    window.open(QUIZ_CONFIG.registration1stYearUrl, '_blank', 'noopener,noreferrer');
+                    closeRegistrationModal();
+                }
+            } else {
+                alert('⚠️ Configuration not loaded. Please check config.js');
+            }
+        });
+    }
+    
+    // Handle 2nd/3rd year registration
+    if (register2nd3rdYear) {
+        register2nd3rdYear.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.registration2nd3rdYearUrl) {
+                if (QUIZ_CONFIG.registration2nd3rdYearUrl === 'PASTE_2ND_3RD_YEAR_GOOGLE_FORM_LINK_HERE') {
+                    alert('⚠️ 2nd/3rd Year registration link not configured yet.\n\nPlease update registration2nd3rdYearUrl in config.js');
+                } else {
+                    window.open(QUIZ_CONFIG.registration2nd3rdYearUrl, '_blank', 'noopener,noreferrer');
+                    closeRegistrationModal();
+                }
+            } else {
+                alert('⚠️ Configuration not loaded. Please check config.js');
+            }
+        });
+    }
     
     // Add click handlers to quiz start buttons
     quizButtons.forEach(button => {
@@ -72,20 +149,6 @@ function initializeButtons() {
             button.addEventListener('click', handleQuizStartClick);
         }
     });
-}
-
-function handleRegisterClick(e) {
-    e.preventDefault();
-    
-    if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.registrationUrl) {
-        if (QUIZ_CONFIG.registrationUrl === 'PASTE_GOOGLE_FORM_LINK_HERE') {
-            alert('⚠️ Registration link not configured yet.\n\nPlease update the registrationUrl in config.js');
-        } else {
-            window.open(QUIZ_CONFIG.registrationUrl, '_blank', 'noopener,noreferrer');
-        }
-    } else {
-        alert('⚠️ Configuration not loaded. Please check config.js');
-    }
 }
 
 function handleQuizStartClick(e) {

@@ -45,8 +45,9 @@ Edit `config.js`:
 
 ```javascript
 const QUIZ_CONFIG = {
-    // YOUR GOOGLE FORM URL HERE ↓
-    registrationUrl: "https://forms.google.com/YOUR-FORM",
+    // REGISTRATION URLS (2 separate forms) ↓
+    registration1stYearUrl: "https://forms.google.com/YOUR-1ST-YEAR-FORM",
+    registration2nd3rdYearUrl: "https://forms.google.com/YOUR-2ND-3RD-YEAR-FORM",
     
     // YOUR TEST PORTAL URL HERE ↓
     quizUrl: "https://your-test-portal.com/quiz",
@@ -61,6 +62,10 @@ const QUIZ_CONFIG = {
     mode: "Offline",
 };
 ```
+
+**Note:** When students click "REGISTER FOR QUIZ", a modal will appear with 2 options:
+- **1st Year Students** button
+- **2nd & 3rd Year Students** button
 
 **Save the file!**
 

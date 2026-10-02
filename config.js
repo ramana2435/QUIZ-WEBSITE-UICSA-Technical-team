@@ -6,7 +6,12 @@
 const QUIZ_CONFIG = {
     // EXTERNAL LINKS
     // Replace these placeholder URLs with your actual links
-    registrationUrl: "PASTE_GOOGLE_FORM_LINK_HERE",
+    registrationUrl: "PASTE_GOOGLE_FORM_LINK_HERE", // This is now unused - kept for compatibility
+    
+    // SEPARATE REGISTRATION LINKS FOR DIFFERENT YEARS
+    registration1stYearUrl: "PASTE_1ST_YEAR_GOOGLE_FORM_LINK_HERE",
+    registration2nd3rdYearUrl: "PASTE_2ND_3RD_YEAR_GOOGLE_FORM_LINK_HERE",
+    
     quizUrl: "PASTE_TEST_PORTAL_LINK_HERE",
     
     // QUIZ COUNTDOWN
