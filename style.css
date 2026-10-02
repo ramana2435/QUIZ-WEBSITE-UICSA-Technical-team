@@ -433,6 +433,13 @@ img {
     opacity: 0.85;
 }
 
+.hero-organized .coordinator-name {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
 .hero-buttons {
     display: flex;
     align-items: center;
@@ -1432,6 +1439,12 @@ section {
     font-size: 0.95rem;
     opacity: 0.85;
     margin-bottom: 0.5rem;
+}
+
+.footer-organized .coordinator-name {
+    font-size: 0.875rem;
+    opacity: 0.75;
+    font-style: italic;
 }
 
 .footer-quick-links h4 {
