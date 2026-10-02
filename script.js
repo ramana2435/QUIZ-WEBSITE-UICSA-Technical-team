@@ -78,31 +78,63 @@ function initializeButtons() {
     
     // Modal control functions
     function openRegistrationModal() {
+        console.log('Opening registration modal...');
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            console.log('Modal opened successfully');
+        } else {
+            console.error('Modal element not found!');
         }
     }
     
     function closeRegistrationModal() {
+        console.log('Closing registration modal...');
         if (modal) {
             modal.classList.remove('active');
             document.body.style.overflow = ''; // Restore scrolling
+            console.log('Modal closed successfully');
         }
     }
     
     // Close modal handlers
     if (modalClose) {
-        modalClose.addEventListener('click', closeRegistrationModal);
+        console.log('Close button found, adding listener');
+        modalClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Close button clicked');
+            closeRegistrationModal();
+        });
+    } else {
+        console.error('Close button not found!');
     }
     
     if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeRegistrationModal);
+        console.log('Overlay found, adding listener');
+        modalOverlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Overlay clicked');
+            closeRegistrationModal();
+        });
+    } else {
+        console.error('Overlay not found!');
+    }
+    
+    // Prevent closing when clicking inside modal content
+    const modalContent = document.querySelector('.modal-content');
+    if (modalContent) {
+        console.log('Modal content found, preventing propagation');
+        modalContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+            console.log('Clicked inside modal content');
+        });
     }
     
     // Escape key to close modal
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            console.log('ESC key pressed, closing modal');
             closeRegistrationModal();
         }
     });

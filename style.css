@@ -1548,6 +1548,7 @@ section {
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 .modal-content {
@@ -1590,12 +1591,18 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: calc(var(--z-modal) + 12);
 }
 
 .modal-close:hover {
     background: rgba(0, 0, 0, 0.1);
     color: var(--primary-color);
     transform: rotate(90deg);
+}
+
+.modal-close:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 .modal-title {
