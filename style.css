@@ -420,6 +420,11 @@ img {
     font-weight: 600;
     margin-bottom: 1.5rem;
     opacity: 0.9;
+    text-align: center;
+}
+
+.tagline-item {
+    display: inline-block;
 }
 
 .tagline-separator {
@@ -431,6 +436,11 @@ img {
     margin-bottom: 2.5rem;
     font-size: 1rem;
     opacity: 0.85;
+    text-align: center;
+}
+
+.hero-organized p {
+    margin: 0.5rem 0;
 }
 
 .hero-organized .coordinator-name {
@@ -1815,9 +1825,25 @@ section {
         min-height: 90vh;
     }
     
+    .hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-title,
+    .hero-subtitle,
+    .hero-tagline,
+    .hero-organized {
+        text-align: center;
+    }
+    
     .hero-buttons {
         flex-direction: column;
         width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
     
     .hero-buttons .btn {
@@ -1934,15 +1960,51 @@ section {
     
     .hero {
         padding: 5rem 0 2rem;
+        text-align: center;
+    }
+    
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-badge {
+        text-align: center;
+    }
+    
+    .hero-title {
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        text-align: center;
     }
     
     .hero-tagline {
         flex-direction: column;
         gap: 0.5rem;
+        text-align: center;
+        width: 100%;
     }
     
     .tagline-separator {
         display: none;
+    }
+    
+    .hero-organized {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .hero-organized p {
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        width: 100%;
+        padding: 0 1rem;
     }
     
     .btn {
@@ -2053,6 +2115,43 @@ section {
 
 /* Very Small Devices (max-width: 360px) */
 @media (max-width: 360px) {
+    .hero-content {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-title {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-subtitle,
+    .hero-tagline,
+    .hero-organized {
+        text-align: center;
+    }
+    
+    .hero-tagline .tagline-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+    
     .countdown-item {
         min-width: 60px;
         padding: 0.875rem 0.375rem;
