@@ -102,7 +102,7 @@
                 
                 <div class="hero-organized" data-aos="fade-up" data-aos-delay="400">
                     <p>Organized by <strong>UICSA Technical Team</strong></p>
-                    <p class="coordinator-name">Technical Team Coordinator: <strong>Ms. Arul Mozhi</strong></p>
+                    <p class="coordinator-name">Technical Team Coordinator: <strong>Mrs.s.ArulMozhi</strong></p>
                 </div>
                 
                 <div class="hero-buttons" data-aos="fade-up" data-aos-delay="500">
@@ -242,19 +242,19 @@
                 <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="detail-icon">⏱️</div>
                     <h3 class="detail-title">Duration</h3>
-                    <p class="detail-value" id="eventDurationDisplay">Loading...</p>
+                    <p class="detail-value" id="eventDurationDisplay">60 Minutes</p>
                 </div>
                 
                 <div class="detail-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="detail-icon">📍</div>
                     <h3 class="detail-title">Venue</h3>
-                    <p class="detail-value" id="venueDisplay">Loading...</p>
+                    <p class="detail-value" id="venueDisplay">PG Block</p>
                 </div>
                 
                 <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="detail-icon">💻</div>
                     <h3 class="detail-title">Mode</h3>
-                    <p class="detail-value" id="modeDisplay">Loading...</p>
+                    <p class="detail-value" id="modeDisplay">Online</p>
                 </div>
                 
                 <div class="detail-card" data-aos="fade-up" data-aos-delay="350">
@@ -859,24 +859,51 @@
         ↑
     </button>
 
-    <!-- Registration Modal -->
-    <div class="registration-modal" id="registrationModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
-            <h2 class="modal-title">📝 Select Your Year</h2>
-            <p class="modal-subtitle">Choose the appropriate registration form for your year</p>
+    <!-- Start Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="modal-overlay" id="quizModalOverlay"></div>
+        <div class="modal-content quiz-modal-content">
+            <button class="modal-close" id="quizModalClose" aria-label="Close modal">&times;</button>
             
-            <div class="modal-buttons">
-                <button class="btn btn-primary btn-xl modal-btn" id="register1stYear">
-                    <span class="btn-icon">🎓</span>
-                    <span class="btn-text">1st Year Students</span>
+            <!-- Before Quiz Time -->
+            <div class="quiz-status" id="quizBeforeTime" style="display: none;">
+                <div class="quiz-icon">⏰</div>
+                <h2 class="modal-title">Quiz Not Started Yet</h2>
+                <p class="modal-subtitle">The quiz will be available on:</p>
+                <div class="quiz-time-info">
+                    <p><strong>📅 Date:</strong> October 5, 2026</p>
+                    <p><strong>🕐 Time:</strong> 01:00 PM</p>
+                    <p><strong>⏱️ Duration:</strong> 60 Minutes</p>
+                </div>
+                <p class="quiz-note">Please return at the scheduled time to start the quiz.</p>
+            </div>
+
+            <!-- During Quiz Time -->
+            <div class="quiz-status" id="quizDuringTime" style="display: none;">
+                <div class="quiz-icon success">✅</div>
+                <h2 class="modal-title">Quiz is Live!</h2>
+                <p class="modal-subtitle">You can now start the quiz.</p>
+                <div class="quiz-time-info">
+                    <p><strong>⏱️ Time Remaining:</strong> <span id="quizTimeRemaining">60 Minutes</span></p>
+                    <p><strong>💻 Mode:</strong> Online</p>
+                </div>
+                <button class="btn btn-secondary btn-xl" id="startQuizNowBtn">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">START QUIZ NOW</span>
                 </button>
-                
-                <button class="btn btn-secondary btn-xl modal-btn" id="register2nd3rdYear">
-                    <span class="btn-icon">📚</span>
-                    <span class="btn-text">2nd & 3rd Year Students</span>
-                </button>
+                <p class="quiz-warning">⚠️ Make sure you have a stable internet connection.</p>
+            </div>
+
+            <!-- After Quiz Time -->
+            <div class="quiz-status" id="quizAfterTime" style="display: none;">
+                <div class="quiz-icon error">❌</div>
+                <h2 class="modal-title">Quiz Has Ended</h2>
+                <p class="modal-subtitle">The quiz submission time has expired.</p>
+                <div class="quiz-time-info">
+                    <p><strong>📅 Quiz Date:</strong> October 5, 2026</p>
+                    <p><strong>🕐 Quiz Time:</strong> 01:00 PM - 02:00 PM</p>
+                </div>
+                <p class="quiz-note">Thank you for your interest. Please contact the organizers for more information.</p>
             </div>
         </div>
     </div>

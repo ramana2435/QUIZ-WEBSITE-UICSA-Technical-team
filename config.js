@@ -6,26 +6,21 @@
 const QUIZ_CONFIG = {
     // EXTERNAL LINKS
     // Replace these placeholder URLs with your actual links
-    registrationUrl: "PASTE_GOOGLE_FORM_LINK_HERE", // This is now unused - kept for compatibility
-    
-    // SEPARATE REGISTRATION LINKS FOR DIFFERENT YEARS
-    registration1stYearUrl: "PASTE_1ST_YEAR_GOOGLE_FORM_LINK_HERE",
-    registration2nd3rdYearUrl: "PASTE_2ND_3RD_YEAR_GOOGLE_FORM_LINK_HERE",
-    
+    registrationUrl: "https://forms.gle/gK2u7fuQbjbnQKPv6",
     quizUrl: "PASTE_TEST_PORTAL_LINK_HERE",
     
     // QUIZ COUNTDOWN
+    // Quiz Date: October 5, 2026 at 1:00 PM
     // Format: "YYYY-MM-DDTHH:MM:SS"
-    // Example: "2026-12-25T10:00:00"
-    quizDate: "2026-12-31T10:00:00",
+    quizDate: "2026-10-05T13:00:00",
     
     // EVENT DETAILS
     // Edit these values as needed
-    eventDate: "To Be Announced",
-    eventTime: "To Be Announced",
-    eventDuration: "90 Minutes",
-    venue: "To Be Announced",
-    mode: "Online / Offline",
+    eventDate: "October 5, 2026",
+    eventTime: "01:00 PM",
+    eventDuration: "60 Minutes",
+    venue: "Online",
+    mode: "Online",
     eligibility: "UICSA Branch Students",
     
     // ORGANIZATION
@@ -34,8 +29,8 @@ const QUIZ_CONFIG = {
     location: "Hyderabad",
     
     // CONTACT (Optional - add if needed)
-    contactEmail: "uicsa@example.com",
-    contactPhone: "+91 XXXXXXXXXX"
+    contactEmail: "maddilaramana32@gmail.com",
+    contactPhone: "+91 8096831402"
 };
 
 // Export for use in other scripts

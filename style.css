@@ -1522,9 +1522,9 @@ section {
 }
 
 /* ============================================
-   REGISTRATION MODAL
+   QUIZ TIME MODAL
    ============================================ */
-.registration-modal {
+.quiz-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -1536,7 +1536,7 @@ section {
     justify-content: center;
 }
 
-.registration-modal.active {
+.quiz-modal.active {
     display: flex;
 }
 
@@ -1617,24 +1617,83 @@ section {
     text-align: center;
     color: var(--text-gray);
     font-size: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.modal-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+.quiz-modal-content {
+    max-width: 550px;
+    text-align: center;
 }
 
-.modal-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 1.5rem 2rem;
+.quiz-status {
+    padding: 1rem 0;
+}
+
+.quiz-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    animation: iconPulse 2s infinite;
+}
+
+.quiz-icon.success {
+    color: #10b981;
+}
+
+.quiz-icon.error {
+    color: #ef4444;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.quiz-time-info {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border: 2px solid var(--accent-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.quiz-time-info p {
     font-size: 1.125rem;
+    color: var(--text-dark);
+    margin: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.modal-btn .btn-icon {
-    font-size: 1.5rem;
+.quiz-time-info strong {
+    color: var(--primary-color);
+}
+
+.quiz-note {
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+}
+
+.quiz-warning {
+    font-size: 0.95rem;
+    color: #f59e0b;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+#startQuizNowBtn {
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* ============================================
@@ -1976,7 +2035,17 @@ section {
         font-size: 0.95rem;
     }
     
-    .modal-btn {
+    .quiz-icon {
+        font-size: 4rem;
+    }
+    
+    .quiz-time-info p {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    #startQuizNowBtn {
         padding: 1.25rem 1.5rem;
         font-size: 1rem;
     }

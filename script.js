@@ -59,121 +59,12 @@ function initializeButtons() {
         document.getElementById('startQuizBtn3')
     ];
     
-    // Get modal elements
-    const modal = document.getElementById('registrationModal');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const register1stYear = document.getElementById('register1stYear');
-    const register2nd3rdYear = document.getElementById('register2nd3rdYear');
-    
-    // Add click handlers to register buttons - open modal instead
+    // Add click handlers to register buttons
     registerButtons.forEach(button => {
         if (button) {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                openRegistrationModal();
-            });
+            button.addEventListener('click', handleRegisterClick);
         }
     });
-    
-    // Modal control functions
-    function openRegistrationModal() {
-        console.log('Opening registration modal...');
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            console.log('Modal opened successfully');
-        } else {
-            console.error('Modal element not found!');
-        }
-    }
-    
-    function closeRegistrationModal() {
-        console.log('Closing registration modal...');
-        if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-            console.log('Modal closed successfully');
-        }
-    }
-    
-    // Close modal handlers
-    if (modalClose) {
-        console.log('Close button found, adding listener');
-        modalClose.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Close button clicked');
-            closeRegistrationModal();
-        });
-    } else {
-        console.error('Close button not found!');
-    }
-    
-    if (modalOverlay) {
-        console.log('Overlay found, adding listener');
-        modalOverlay.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Overlay clicked');
-            closeRegistrationModal();
-        });
-    } else {
-        console.error('Overlay not found!');
-    }
-    
-    // Prevent closing when clicking inside modal content
-    const modalContent = document.querySelector('.modal-content');
-    if (modalContent) {
-        console.log('Modal content found, preventing propagation');
-        modalContent.addEventListener('click', function(e) {
-            e.stopPropagation();
-            console.log('Clicked inside modal content');
-        });
-    }
-    
-    // Escape key to close modal
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-            console.log('ESC key pressed, closing modal');
-            closeRegistrationModal();
-        }
-    });
-    
-    // Handle 1st year registration
-    if (register1stYear) {
-        register1stYear.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.registration1stYearUrl) {
-                if (QUIZ_CONFIG.registration1stYearUrl === 'PASTE_1ST_YEAR_GOOGLE_FORM_LINK_HERE') {
-                    alert('⚠️ 1st Year registration link not configured yet.\n\nPlease update registration1stYearUrl in config.js');
-                } else {
-                    window.open(QUIZ_CONFIG.registration1stYearUrl, '_blank', 'noopener,noreferrer');
-                    closeRegistrationModal();
-                }
-            } else {
-                alert('⚠️ Configuration not loaded. Please check config.js');
-            }
-        });
-    }
-    
-    // Handle 2nd/3rd year registration
-    if (register2nd3rdYear) {
-        register2nd3rdYear.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.registration2nd3rdYearUrl) {
-                if (QUIZ_CONFIG.registration2nd3rdYearUrl === 'PASTE_2ND_3RD_YEAR_GOOGLE_FORM_LINK_HERE') {
-                    alert('⚠️ 2nd/3rd Year registration link not configured yet.\n\nPlease update registration2nd3rdYearUrl in config.js');
-                } else {
-                    window.open(QUIZ_CONFIG.registration2nd3rdYearUrl, '_blank', 'noopener,noreferrer');
-                    closeRegistrationModal();
-                }
-            } else {
-                alert('⚠️ Configuration not loaded. Please check config.js');
-            }
-        });
-    }
     
     // Add click handlers to quiz start buttons
     quizButtons.forEach(button => {
@@ -183,17 +74,127 @@ function initializeButtons() {
     });
 }
 
-function handleQuizStartClick(e) {
+function handleRegisterClick(e) {
     e.preventDefault();
     
-    if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.quizUrl) {
-        if (QUIZ_CONFIG.quizUrl === 'PASTE_TEST_PORTAL_LINK_HERE') {
-            alert('⚠️ Quiz link not configured yet.\n\nPlease update the quizUrl in config.js');
+    if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.registrationUrl) {
+        if (QUIZ_CONFIG.registrationUrl === 'PASTE_GOOGLE_FORM_LINK_HERE') {
+            alert('⚠️ Registration link not configured yet.\n\nPlease update the registrationUrl in config.js');
         } else {
-            window.open(QUIZ_CONFIG.quizUrl, '_blank', 'noopener,noreferrer');
+            window.open(QUIZ_CONFIG.registrationUrl, '_blank', 'noopener,noreferrer');
         }
     } else {
         alert('⚠️ Configuration not loaded. Please check config.js');
+    }
+}
+
+function handleQuizStartClick(e) {
+    e.preventDefault();
+    
+    // Open quiz modal to check time
+    openQuizModal();
+}
+
+/* ============================================
+   QUIZ MODAL & TIME VALIDATION
+   ============================================ */
+function openQuizModal() {
+    const quizModal = document.getElementById('quizModal');
+    const quizModalOverlay = document.getElementById('quizModalOverlay');
+    const quizModalClose = document.getElementById('quizModalClose');
+    const startQuizNowBtn = document.getElementById('startQuizNowBtn');
+    
+    if (!quizModal) return;
+    
+    // Check current time vs quiz time
+    checkQuizTime();
+    
+    // Show modal
+    quizModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Close handlers
+    if (quizModalClose) {
+        quizModalClose.addEventListener('click', closeQuizModal);
+    }
+    
+    if (quizModalOverlay) {
+        quizModalOverlay.addEventListener('click', closeQuizModal);
+    }
+    
+    // Start quiz now button (only works during quiz time)
+    if (startQuizNowBtn) {
+        startQuizNowBtn.addEventListener('click', function() {
+            if (typeof QUIZ_CONFIG !== 'undefined' && QUIZ_CONFIG.quizUrl) {
+                if (QUIZ_CONFIG.quizUrl === 'PASTE_TEST_PORTAL_LINK_HERE') {
+                    alert('⚠️ Quiz link not configured yet.\n\nPlease update the quizUrl in config.js');
+                } else {
+                    window.open(QUIZ_CONFIG.quizUrl, '_blank', 'noopener,noreferrer');
+                    closeQuizModal();
+                }
+            } else {
+                alert('⚠️ Configuration not loaded. Please check config.js');
+            }
+        });
+    }
+    
+    // ESC key to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && quizModal.classList.contains('active')) {
+            closeQuizModal();
+        }
+    });
+}
+
+function closeQuizModal() {
+    const quizModal = document.getElementById('quizModal');
+    if (quizModal) {
+        quizModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function checkQuizTime() {
+    if (typeof QUIZ_CONFIG === 'undefined' || !QUIZ_CONFIG.quizDate) {
+        console.warn('Quiz date not configured');
+        return;
+    }
+    
+    const now = new Date().getTime();
+    const quizStartTime = new Date(QUIZ_CONFIG.quizDate).getTime();
+    const quizDuration = parseInt(QUIZ_CONFIG.eventDuration) || 60; // Default 60 minutes
+    const quizEndTime = quizStartTime + (quizDuration * 60 * 1000); // Convert minutes to milliseconds
+    
+    const beforeTimeDiv = document.getElementById('quizBeforeTime');
+    const duringTimeDiv = document.getElementById('quizDuringTime');
+    const afterTimeDiv = document.getElementById('quizAfterTime');
+    
+    // Hide all status divs
+    if (beforeTimeDiv) beforeTimeDiv.style.display = 'none';
+    if (duringTimeDiv) duringTimeDiv.style.display = 'none';
+    if (afterTimeDiv) afterTimeDiv.style.display = 'none';
+    
+    if (now < quizStartTime) {
+        // Before quiz time
+        if (beforeTimeDiv) beforeTimeDiv.style.display = 'block';
+    } else if (now >= quizStartTime && now <= quizEndTime) {
+        // During quiz time
+        if (duringTimeDiv) {
+            duringTimeDiv.style.display = 'block';
+            
+            // Calculate remaining time
+            const remainingMs = quizEndTime - now;
+            const remainingMinutes = Math.floor(remainingMs / (1000 * 60));
+            const remainingSeconds = Math.floor((remainingMs % (1000 * 60)) / 1000);
+            
+            const timeRemainingElement = document.getElementById('quizTimeRemaining');
+            if (timeRemainingElement) {
+                timeRemainingElement.textContent = `${remainingMinutes} min ${remainingSeconds} sec`;
+            }
+        }
+    } else {
+        // After quiz time
+        if (afterTimeDiv) afterTimeDiv.style.display = 'block';
     }
 }
 
