@@ -425,6 +425,32 @@ function initializeScrollAnimations() {
     animatedElements.forEach(element => {
         observer.observe(element);
     });
+    
+    // Make scroll indicator clickable
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const countdownSection = document.getElementById('countdown');
+            if (countdownSection) {
+                countdownSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        
+        // Make it keyboard accessible
+        scrollIndicator.setAttribute('tabindex', '0');
+        scrollIndicator.setAttribute('role', 'button');
+        scrollIndicator.setAttribute('aria-label', 'Scroll down to content');
+        
+        scrollIndicator.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const countdownSection = document.getElementById('countdown');
+                if (countdownSection) {
+                    countdownSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
 }
 
 /* ============================================

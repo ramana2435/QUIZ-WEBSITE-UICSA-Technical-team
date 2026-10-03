@@ -464,17 +464,40 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    opacity: 0.7;
+    opacity: 0.9;
     animation: bounce 2s infinite;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
 }
 
 .scroll-text {
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-arrow {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: var(--accent-light);
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(34, 211, 238, 0.6);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.8));
 }
 
 @keyframes bounce {
@@ -482,7 +505,7 @@ img {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
 }
 
@@ -1849,6 +1872,22 @@ section {
     .hero-buttons .btn {
         width: 100%;
         max-width: 350px;
+    }
+    
+    .scroll-indicator {
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 1.25rem;
+        margin-top: 2.5rem;
+        box-shadow: 0 4px 20px rgba(34, 211, 238, 0.4);
+    }
+    
+    .scroll-arrow {
+        font-size: 2.5rem;
+    }
+    
+    .scroll-text {
+        font-size: 0.95rem;
     }
     
     .countdown-item {
