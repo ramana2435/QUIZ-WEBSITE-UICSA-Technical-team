@@ -50,7 +50,8 @@ function initializeButtons() {
     // Get all register and quiz start buttons
     const registerButtons = [
         document.getElementById('registerBtn'),
-        document.getElementById('registerBtn2')
+        document.getElementById('registerBtn2'),
+        document.getElementById('registerBtnAbout')
     ];
     
     const quizButtons = [
