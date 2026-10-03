@@ -463,41 +463,46 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    opacity: 0.9;
+    opacity: 1;
     animation: bounce 2s infinite;
-    margin-top: 2rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
+    margin: 3rem auto 0;
+    padding: 1.5rem 2rem;
+    background: rgba(34, 211, 238, 0.2);
+    border-radius: var(--radius-full);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(34, 211, 238, 0.6);
     cursor: pointer;
     transition: all var(--transition-normal);
+    max-width: 200px;
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.5);
 }
 
 .scroll-indicator:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
+    background: rgba(34, 211, 238, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.8);
+    border-color: rgba(34, 211, 238, 1);
 }
 
 .scroll-text {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-light);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 .scroll-arrow {
-    font-size: 2rem;
-    color: var(--accent-light);
+    font-size: 2.5rem;
+    color: #22d3ee;
     font-weight: bold;
-    text-shadow: 0 2px 8px rgba(34, 211, 238, 0.6);
-    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.8));
+    text-shadow: 0 0 20px rgba(34, 211, 238, 1);
+    filter: drop-shadow(0 0 15px rgba(34, 211, 238, 1));
 }
 
 @keyframes bounce {
@@ -505,7 +510,7 @@ img {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(15px);
+        transform: translateY(20px);
     }
 }
 
@@ -2039,11 +2044,44 @@ section {
     
     .hero-organized p {
         text-align: center;
+        margin: 0 auto;
+        width: 100%;
     }
     
     .hero-buttons {
         width: 100%;
         padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .scroll-indicator {
+        opacity: 1 !important;
+        background: rgba(34, 211, 238, 0.3) !important;
+        padding: 1.5rem 2rem !important;
+        margin: 3rem auto 2rem !important;
+        box-shadow: 0 0 50px rgba(34, 211, 238, 0.9) !important;
+        border: 3px solid #22d3ee !important;
+        max-width: 200px !important;
+    }
+    
+    .scroll-arrow {
+        font-size: 3rem !important;
+        color: #22d3ee !important;
+    }
+    
+    .scroll-text {
+        font-size: 1.1rem !important;
+        color: #ffffff !important;
+        font-weight: 800 !important;
     }
     
     .btn {
@@ -2156,6 +2194,7 @@ section {
 @media (max-width: 360px) {
     .hero-content {
         padding: 0 0.5rem;
+        width: 100%;
     }
     
     .hero-title {
@@ -2163,12 +2202,14 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
     
     .hero-subtitle,
     .hero-tagline,
     .hero-organized {
         text-align: center;
+        width: 100%;
     }
     
     .hero-tagline .tagline-item {
@@ -2189,6 +2230,13 @@ section {
     .hero-buttons .btn {
         width: 100%;
         max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .scroll-indicator {
+        max-width: 180px !important;
+        padding: 1.25rem 1.5rem !important;
+        margin: 2.5rem auto 1.5rem !important;
     }
     
     .countdown-item {
